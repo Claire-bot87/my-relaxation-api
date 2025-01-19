@@ -1,0 +1,13 @@
+<%- include('partials/html-head') %>
+<%- include('partials/nav') %>
+
+
+    
+      <ul>
+        <% suggestions.filter(suggestion => suggestion.category === 'books').forEach(suggestion => { %>
+          <li><%= suggestion.name %></li>
+        <% }) %>
+      </ul>
+      
+</body>
+</html>

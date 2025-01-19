@@ -1,0 +1,11 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+    <h1>Here are all your modes of transport:</h1>
+    <ul><% allModesOfTransport.forEach((modeOfTransport =>{ %>
+<li>
+    <%= modeOfTransport.name %>
+</li>
+  <%  })) %></ul>
+</body>
+</html>
