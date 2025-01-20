@@ -1,0 +1,18 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<h1>hi this is the UPDATE page</h1>
+
+  <h1>Update <%= suggestion.name %></h1>
+  <form action="/suggestion/update/<%=suggestion._id%>?_method=PUT" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="<%=suggestion.name%>">
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description" value="<%=suggestion.description%>">
+    <label for="category">Category:</label>
+    <input type="text" name="category" id="category" value="<%=suggestion.category%>">
+    <button type="submit">Update suggestion</button>   
+  </form>
+
+</body>
+</html>

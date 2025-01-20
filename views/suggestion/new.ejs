@@ -1,0 +1,17 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<h1>hi this is the NEW page</h1>
+
+<form action= "/suggestion/new" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name">  
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description"> 
+    <label for="category">Category:</label>
+    <input type="text" name="category" id="category"> 
+    <button type="submit">Add transport</button>
+      </form>
+</body>
+</html>
+

@@ -4,15 +4,19 @@ import suggestions from './data.js'
 import Suggestion from './models/suggestion.js'
 import suggestionController from './controllers/suggestionController.js'
 import mongoose from 'mongoose'
+import methodOverride from 'method-override'
 const app = express()
 app.use(morgan('dev'))
 
+app.use(methodOverride('_method'))
 app.use(express.json())
-// Define routes here:
+
+app.use(express.urlencoded({extended: false}))
+
 
 //have our app us ethe new suggestionController
 app.use('/', suggestionController)
-
+// Define routes here:
 app.get('/', (req, res) => {
     res.send('<h1>Hello World!</h1>');
   });

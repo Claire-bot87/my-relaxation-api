@@ -1,11 +1,13 @@
-<%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
+<%- include('partials/html-head') %>
+<%- include('partials/nav') %>
 
-    <h1>Here are all your modes of transport:</h1>
-    <ul><% allModesOfTransport.forEach((modeOfTransport =>{ %>
-<li>
-    <%= modeOfTransport.name %>
-</li>
-  <%  })) %></ul>
+    <h1>Sugestions for relaxation:</h1>
+    <a href="/suggestion/Books">Books</a>
+    <a href="/suggestion/Activities">Activities</a>
+    <a href="/suggestion/Exercises">Exercises</a>
+    <a href="/suggestion/Scents">Scents</a>
+    <a href="/suggestion/Sounds">Sounds</a>
+    <a href="/suggestion/Places">Places</a>
+
 </body>
 </html>

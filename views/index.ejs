@@ -1,13 +1,25 @@
 <%- include('partials/html-head') %>
 <%- include('partials/nav') %>
-
-
-    
+<h1>hi this is the index page</h1>
+<h1><%= chosenCategory %></h1>
+<% suggestions.filter(suggestion => suggestion.category.toLowerCase() === chosenCategory.toLowerCase()).forEach(suggestion => { %>
       <ul>
-        <% suggestions.filter(suggestion => suggestion.category === 'books').forEach(suggestion => { %>
+
+        
           <li><%= suggestion.name %></li>
-        <% }) %>
+          <li><%= suggestion.description %></li>
+          <li><%= suggestion._id %></li>
+          <form action="/suggestion/<%=suggestion._id%>?_method=DELETE" method="POST">
+            <button type="submit">
+              Delete <%= suggestion.name %>
+            </button>
+          </form>
+         
       </ul>
+    
+      <a href="/suggestion/update/<%=suggestion._id%>">Edit</a>
       
+      <% }) %>  
+      <a href="/suggestion/new">Add a new suggestion</a>
 </body>
 </html>
