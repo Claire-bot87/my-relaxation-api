@@ -7,7 +7,8 @@ name: {type: String, required:true},
 description: {type: String, required:true},
 // id: ObjectId,
 // user: ObjectId,
-category: {type: String, required:true}
+category: {type: String, required:true},
+image: {type: String, required:false}
 
 })
 //the first argument to the model method MUST be a string pascalecase, singular

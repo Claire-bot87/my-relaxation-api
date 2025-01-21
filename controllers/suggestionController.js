@@ -76,31 +76,31 @@ const router = express.Router()
 //** POST EJS CODE: */
 
 
-router.route('/').get(async function(req, res, next){
-  try{
-      res.render('home.ejs')
-  }catch(e) {
-      next(e)
+router.route('/').get(async function (req, res, next) {
+  try {
+    res.render('home.ejs')
+  } catch (e) {
+    next(e)
   }
 })
 
 
-router.route('/suggestion/new').get(async function(req, res, next){
-  try{
-      res.render('suggestion/new.ejs')
-  }catch(e) {
-      next(e)
+router.route('/suggestion/new').get(async function (req, res, next) {
+  try {
+    res.render('suggestion/new.ejs')
+  } catch (e) {
+    next(e)
   }
 })
 
-router.route('/suggestion/update/:id').get(async function(req, res, next){
-  try{
-   
-  const suggestion = await Suggestion.findById(req.params.id)
-      res.render('suggestion/update.ejs', { suggestion: suggestion})
-   
-  }catch(e) {
-      next(e)
+router.route('/suggestion/update/:id').get(async function (req, res, next) {
+  try {
+
+    const suggestion = await Suggestion.findById(req.params.id)
+    res.render('suggestion/update.ejs', { suggestion: suggestion })
+
+  } catch (e) {
+    next(e)
   }
 })
 
@@ -131,41 +131,41 @@ router.route('/suggestion/:category').get(async function (req, res) {
 // })
 
 router.route('/suggestion/:id').delete(async function (req, res) {
- console.log('RUNNING THE POST EJS CODE')
-    const suggestionId = req.params.id
-   
-    await Suggestion.findByIdAndDelete(suggestionId)
-    res.redirect('/')
-  })
+  console.log('RUNNING THE POST EJS CODE')
+  const suggestionId = req.params.id
+
+  await Suggestion.findByIdAndDelete(suggestionId)
+  res.redirect('/')
+})
 
 
-  router.route('/suggestion/update/:id').put(async function (req, res) {
-    // if(!req.session.user){
-    //   return res.status(402).send({message: "you must be logged in to update a mode of transport"})
-    //  }
-    console.log("RUNNING CODE FROM CONTROLLER FOR PUT😄")
-    const suggestionId = req.params.id
-  
-    const suggestion = await Suggestion.findById(suggestionId)
-  
-    // if (!transport.user._id.equals(req.session.user._id)) {
-    //   return res.status(402).send({ message: "this is not your destination to update!"})
-    // }
-    const updateSuggestion = await Suggestion.findByIdAndUpdate(suggestionId, req.body, { new: true })
-    if (!updateSuggestion) {
-      return res.status(404).send({ message: "Suggestion not found" });
-    }
-    res.redirect('/')
-    
-  })
+router.route('/suggestion/update/:id').put(async function (req, res) {
+  // if(!req.session.user){
+  //   return res.status(402).send({message: "you must be logged in to update a mode of transport"})
+  //  }
+  console.log("RUNNING CODE FROM CONTROLLER FOR PUT😄")
+  const suggestionId = req.params.id
 
-  router.route('/suggestion/new').post(async function (req, res) {
-    console.log("RUNNING CODE FROM CONTROLLER")
-    // Get the new destination from the body of request
-    const newSuggestion = await Suggestion.create(req.body)
-    // Send back our destination with appropriate status code.
-    res.redirect('/')
-  })
+  const suggestion = await Suggestion.findById(suggestionId)
+
+  // if (!transport.user._id.equals(req.session.user._id)) {
+  //   return res.status(402).send({ message: "this is not your destination to update!"})
+  // }
+  const updateSuggestion = await Suggestion.findByIdAndUpdate(suggestionId, req.body, { new: true })
+  if (!updateSuggestion) {
+    return res.status(404).send({ message: "Suggestion not found" });
+  }
+  res.redirect('/')
+
+})
+
+router.route('/suggestion/new').post(async function (req, res) {
+  console.log("RUNNING CODE FROM CONTROLLER")
+  // Get the new destination from the body of request
+  const newSuggestion = await Suggestion.create(req.body)
+  // Send back our destination with appropriate status code.
+  res.redirect('/')
+})
 
 
 

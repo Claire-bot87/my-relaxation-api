@@ -3,12 +3,37 @@ import morgan from 'morgan'
 import suggestions from './data.js'
 import Suggestion from './models/suggestion.js'
 import suggestionController from './controllers/suggestionController.js'
+import userController from './controllers/userController.js'
 import mongoose from 'mongoose'
 import methodOverride from 'method-override'
+import path from 'path'
+import { fileURLToPath } from 'url';
+import session from 'express-session'
+
+
 const app = express()
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(process.cwd(), 'public')))
+
 app.use(morgan('dev'))
 
 app.use(methodOverride('_method'))
+
+
+app.use(express.static(path.join(__dirname, "public")))
+
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized:true,
+    cookie:{
+      secure:false, //is this using https?
+      httoOnly: true,
+      maxAge: 1000 * 60 * 60 * 24,
+    }
+  }))
+
 app.use(express.json())
 
 app.use(express.urlencoded({extended: false}))
@@ -16,6 +41,8 @@ app.use(express.urlencoded({extended: false}))
 
 //have our app us ethe new suggestionController
 app.use('/', suggestionController)
+
+app.use('/', userController)
 // Define routes here:
 app.get('/', (req, res) => {
     res.send('<h1>Hello World!</h1>');
