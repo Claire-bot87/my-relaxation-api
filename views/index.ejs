@@ -1,29 +1,34 @@
 <%- include('partials/html-head') %>
 <%- include('partials/nav') %>
 <h1>hi this is the index page</h1>
-<img src="https://unsplash.com/photos/a-vase-and-some-books-H_eb_VfG2Ow?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash"/>
+
 <h1><%= chosenCategory %></h1>
+<div class="index-grid">
 <% suggestions.filter(suggestion => suggestion.category.toLowerCase() === chosenCategory.toLowerCase()).forEach(suggestion => { %>
-      <ul>
+  
+      <div class="suggestion-card"><ul>
 
         
-          <li><%= suggestion.name %></li>
-          <li><%= suggestion.description %></li>
-          <li><%= suggestion._id %></li>
-          <li><%= suggestion.image %></li>
-          <li><img src="<%=suggestion.image%>" alt="<%=suggestion.name%>"/></li>
+          <li class="suggestion-name"><%= suggestion.name %></li>
+          <li class="suggestion-description"><%= suggestion.description %></li>
+          <div class="edit-and-delete">
+          <a href="/suggestion/update/<%=suggestion._id%>"class="edit"></a>
+       
+        
           <form action="/suggestion/<%=suggestion._id%>?_method=DELETE" method="POST">
-            <button type="submit">
-              Delete <%= suggestion.name %>
+            <button class="delete-button"type="submit">
+              <span class="deletion-text">Delete <%= suggestion.name %></span>
             </button>
           </form>
-         
+        </div>
+      </div>
       </ul>
+   
     
-      <a href="/suggestion/update/<%=suggestion._id%>">Edit</a>
-      <img src="<%=suggestion.image%>" alt="<%=suggestion.name%>"/>
+  
       <% }) %>  
+    </div>
       <a href="/suggestion/new">Add a new suggestion</a>
-     
+    </div>
 </body>
 </html>
