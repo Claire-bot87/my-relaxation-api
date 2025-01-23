@@ -54,4 +54,10 @@ router.route('/user/new').get(async function (req, res, next) {
         }
         )
 
+
+        router.route('/user/signout').get(async function (req, res) {
+          req.session.destroy()
+          res.redirect('/')
+        })
+
   export default router

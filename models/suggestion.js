@@ -8,7 +8,7 @@ description: {type: String, required:true},
 // id: ObjectId,
 // user: ObjectId,
 category: {type: String, required:true},
-image: {type: String, required:false}
+user:{type: mongoose.Schema.Types.ObjectId, ref:'User', required: true},
 
 })
 //the first argument to the model method MUST be a string pascalecase, singular

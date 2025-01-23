@@ -11,16 +11,19 @@
         
           <li class="suggestion-name"><%= suggestion.name %></li>
           <li class="suggestion-description"><%= suggestion.description %></li>
+      
           <div class="edit-and-delete">
+            <% if (user === suggestion.user._id) { %>
           <a href="/suggestion/update/<%=suggestion._id%>"class="edit"></a>
-       
         
           <form action="/suggestion/<%=suggestion._id%>?_method=DELETE" method="POST">
             <button class="delete-button"type="submit">
               <span class="deletion-text">Delete <%= suggestion.name %></span>
             </button>
           </form>
+          <% } %>
         </div>
+      
       </div>
       </ul>
    

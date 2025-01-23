@@ -1,10 +1,14 @@
 
 <nav>
     <a href="/">Home</a>
-   
+  <% if (!user){ %>
     <a href="/user/new">Sign Up</a>
     <a href="/user/login">Log in</a>
-  
+  <% } else { %>
+    <a href="/user/signout">sign out</a>
+ <% } %>
+    
+ 
     
   
   </nav> 

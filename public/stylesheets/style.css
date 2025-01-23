@@ -10,10 +10,12 @@
   /*display: flex;
     flex-basis: auto;*/
     background-image: url("../../my-relaxation-api/images/books.jpg");
+    font-family: "DM Sans", sans-serif;
+    color: #8c3ecb;
 }
 
 body {
-    background: #fff8ed;
+    /*background: white;*/
     font-family: "DM Sans", sans-serif;
     display: flex;
     flex-direction: column;
@@ -24,7 +26,7 @@ body {
   }
   
   h1 {
-    color: #769642;
+    color: #8c3ecb;
     font-size: 3.6em;
   }
   
@@ -46,7 +48,7 @@ body {
  
   height: 500px;
   width: 750px;
-  background-color: #00ff11;
+  /*background-color: white;*/
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -58,8 +60,8 @@ body {
 .index-grid{
  
   height: 400px;
-  width: 600px;
-  background-color: #00ff11;
+  width: 1000px;
+ /* background-color: white;*/
   display: flex;
   flex-direction:row;
   flex-wrap: wrap;
@@ -156,7 +158,7 @@ body {
   align-items: center;
 }
 
-.wrapper{
+/*.wrapper{
   min-height: 60vh;
   display: flex;
   justify-content: center;
@@ -165,10 +167,12 @@ body {
   background-size: contain;
   background-position: center;
   position: relative;
-
 }
+  */
 
-  footer {
+
+
+ /* footer {
     font-size: 0.7em;
     position: fixed;
     left: 0;
@@ -176,13 +180,13 @@ body {
     width: 200%;
     text-align: center;
     padding: 10px;
-  }
+  }*/
 
   
   .suggestion-card {
     height: 200px;
     width: 250px;
-    background-color: #2600ff;
+    background-color: #8c3ecb;
     display: flex;
     flex-direction: column;
     align-items: center; /* Horizontally centers the content */
@@ -216,7 +220,7 @@ body {
 }
 
 .link-text{
-  background-color: #f47b5b;
+  background-color: #c65bf4;
   color: white;
   font-size: 1.4em;
   width: 6em;
@@ -224,17 +228,17 @@ body {
   margin: 15px;
   border-radius: 25px;
   text-align: center;
-  box-shadow: 0 5px #ffbd59;
+  box-shadow: 0 5px #dcb5e8;
 }
 
 .link-text:hover {
-  background-color: #ffbd59;
-  box-shadow: 0 5px #f47b5b;
+  background-color: #dcb5e8;
+  box-shadow: 0 5px #c65bf4;
 }
 
 .link-text:active {
-  background-color: #f47b5b;
-  box-shadow: 0 2.5px #ffbd59;
+  background-color: #c65bf4;
+  box-shadow: 0 2.5px #dcb5e8;
 }
 
 
