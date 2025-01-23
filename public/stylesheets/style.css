@@ -78,7 +78,7 @@ body {
   width: 250px;
   flex-basis: auto;
   
-  background-image: url(../../images/scents.jpg);
+  background-image: url(/images/scents.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display:flex;
@@ -92,7 +92,7 @@ body {
   width: 250px;
   flex-basis: auto;
   
-  background-image: url(../../images/sounds.jpg);
+  background-image: url(/images/sounds.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display:flex;
@@ -106,7 +106,7 @@ body {
   width: 250px;
   flex-basis: auto;
   
-  background-image: url(../../images/places.jpg);
+  background-image: url(/images/places.jpg);
   background-repeat: no-repeat;
   background-size: 100% auto;
   display:flex;
@@ -121,7 +121,7 @@ body {
   width: 250px;
   flex-basis: auto;
   
-  background-image: url(../../images/activities.jpg);
+  background-image: url(/images/activities.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display:flex;
@@ -135,7 +135,7 @@ body {
   width: 250px;
   flex-basis: auto;
   
-  background-image: url(../../images/exercises.jpg);
+  background-image: url(/images/exercises.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display:flex;
@@ -149,7 +149,7 @@ body {
   width: 250px;
   flex-basis: auto;
   
-  background-image: url(../../images/books.jpg);
+  background-image: url(/images/books.jpg);
   background-repeat: no-repeat;
   background-size: 100% auto;
   display:flex;
