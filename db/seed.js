@@ -7,11 +7,14 @@ import mongoose from "mongoose"
 import Suggestion from '../models/suggestion.js'
 import User from '../models/user.js'
 import suggestions from '../data.js'
-async function seed() {
+
 //this function should seed our datbase
+import dotenv from 'dotenv'
+dotenv.config()
 
+async function seed() {
 
-await mongoose.connect('mongodb://127.0.0.1:27017/suggestions-db')
+await mongoose.connect(process.env.MONGODB_URI)
 
 //**this clear the database:
 await mongoose.connection.db.dropDatabase()
