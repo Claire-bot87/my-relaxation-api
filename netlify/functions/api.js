@@ -6,8 +6,7 @@ import suggestionController from '../../controllers/suggestionController.js'
 import userController from '../../controllers/userController.js'
 import mongoose from 'mongoose'
 import methodOverride from 'method-override'
-import path from 'path'
-import { fileURLToPath } from 'url';
+
 import session from 'express-session'
 
 import MongoStore from 'connect-mongo'
@@ -20,10 +19,9 @@ dotenv.config() // initalises .env
 mongoose.connect(process.env.MONGODB_URI)
 
 const app = express()
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
-app.use(express.static(path.join(process.cwd(), 'public')))
+
+
 
 app.use(morgan('dev'))
 
@@ -70,6 +68,4 @@ app.use('/', userController)
 export const handler = serverless(app)
 
 
-  const url = 'mongodb://127.0.0.1:27017/'
-  const dbname = 'suggestions-db'
-  mongoose.connect(`${url}${dbname}`)
+ 
