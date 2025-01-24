@@ -11,9 +11,10 @@
         
           <li class="suggestion-name"><%= suggestion.name %></li>
           <li class="suggestion-description"><%= suggestion.description %></li>
-      
+    
           <div class="edit-and-delete">
-            <% if (user === suggestion.user._id) { %>
+            <%if (user && String(user._id) === String(suggestion.user._id)){ %>
+            
           <a href="/suggestion/update/<%=suggestion._id%>"class="edit"></a>
         
           <form action="/suggestion/<%=suggestion._id%>?_method=DELETE" method="POST">

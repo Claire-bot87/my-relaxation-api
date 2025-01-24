@@ -271,6 +271,7 @@ ul{
 
 .delete-button{
   background-color:transparent;
+  /* background-image: url(../../images/delete-symbol.png); */
   background-image: url(https://res.cloudinary.com/dpv0j8frj/image/upload/v1737716027/delete-symbol_cjdt6b.png);
   background-repeat: no-repeat;
   background-position: 50% 50%;

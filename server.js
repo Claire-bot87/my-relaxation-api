@@ -60,6 +60,6 @@ app.listen(3000, () => {
   })
 
 
-  const url = 'mongodb://127.0.0.1:27017/'
+  const url = process.env.MONGODB_URI
   const dbname = 'suggestions-db'
   mongoose.connect(`${url}${dbname}`)
