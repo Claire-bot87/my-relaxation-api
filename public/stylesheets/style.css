@@ -9,7 +9,7 @@
   /*display: inline-flex;*/
   /*display: flex;
     flex-basis: auto;*/
-    background-image: url("../../my-relaxation-api/images/books.jpg");
+    /*background-image: url("../../my-relaxation-api/images/books.jpg");*/
     font-family: "DM Sans", sans-serif;
     color: #8c3ecb;
 }
@@ -22,7 +22,7 @@ body {
     align-items: center;
     justify-content: center;
     max-width: 200vw;
-    background-image: url("../../my-relaxation-api/images/books.jpg");
+    /*background-image: url("../../my-relaxation-api/images/books.jpg");*/
   }
   
   h1 {
