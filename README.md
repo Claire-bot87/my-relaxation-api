@@ -72,12 +72,74 @@ The app must be deployed online
 
 ## Build Process
 
-First I built out the models
-User Model
-Suggestion model
-In my suggestion model i had a category key, because i wanted to group the suggestions by category. 
 
+
+File structure
+First I built out the models:
+- User Model
+- Suggestion model
+
+In my suggestion model i had a category key, because I wanted to group the suggestions by category.
 Then I built my controllers and my views.
+
+A detailed look at adding a new suggestion. 
+
+First I rendered the new suggestion page:
+Controller
+```.js
+router.route('/suggestion/new').get(async function (req, res, next) {
+  try {
+    res.render('suggestion/new.ejs')
+  } catch (e) {
+    next(e)
+  }
+})
+```
+view:
+```.js
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<h1>add a new suggestion</h1>
+
+<form action= "/suggestion/new" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name">  
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description"> 
+    <label for="category">Category:</label>
+    <input type="text" name="category" id="category"> 
+    <button type="submit">Add suggestion</button>
+      </form>
+</body>
+</html>
+
+```
+
+
+
+Then I enabled a POST request to post a new suggestion, adding it to the database.
+```.js
+router.route('/suggestion/new').post(async function (req, res) {
+ 
+  try {
+
+    if (!req.session.user) {
+      return res.status(402).send({ message: "you must be logged in to save a suggestion" })
+    }
+
+    req.body.user = req.session.user
+  
+    // Get the new destination from the body of request
+    const newSuggestion = await Suggestion.create(req.body)
+    // Send back our destination with appropriate status code.
+    res.redirect('/')
+  } catch (e) {
+    next(e)
+  }
+})
+```
+
 
 
 
