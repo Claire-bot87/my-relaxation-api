@@ -141,19 +141,51 @@ router.route('/suggestion/new').post(async function (req, res) {
 ```
 
 
-
-
 ## Challenges
-
+Many new concepts were 
+request response cycle
+testing requests and responses using postman
+i want the delete button and edit button to only be visible when a user who created that suggestion is logged in.By right now they don't appear even though the user who created that suggestion is logged in 
 
 ## Wins
 
+I needed to render an index of suggestions for 1 particular category. We had not done this in class before. So I had to use links in my home page, linking to an index for each category. Those links provided the route/path I needed. I used req.params.category to capture each specific category and render just the suggestions for that category. I did this by passign chosenCategory as a 'local'.
+```.js
+router.route('/suggestion/:category').get(async function (req, res) {
+  const user = req.session.user
+  
+  const suggestions = await Suggestion.find()
+  const chosenCategory = req.params.category
+  res.render('index.ejs',
+    {
+      suggestions: suggestions,
+      chosenCategory: chosenCategory,
+      user: user,
+    }
+  )
+})
+```
+
+I then rendered the suggestions for just that chosen category in my view:
+```.js
+<h1><%= chosenCategory %></h1>
+<div class="index-grid">
+<% suggestions.filter(suggestion => suggestion.category.toLowerCase() === chosenCategory.toLowerCase()).forEach(suggestion => { %>
+  
+      <div class="suggestion-card"><ul>
+
+        
+          <li class="suggestion-name"><%= suggestion.name %></li>
+          <li class="suggestion-description"><%= suggestion.description %></li>
+```
 
 ## Key Learnings
+Understanding how req.params works.
 
 
 ## Bugs
-
+I have a CSS issue, when the suggestio boxes populate a second row, they overlap witht he 'add a new suggestion' link.
 
 ## Future Improvements
-
+I want to add in a feature where you can add a review on the suggestion. 
+I would also like to add a star-rating feature on the suggestion. Then I would create a filter so that you can view the top-rated suggestions.
