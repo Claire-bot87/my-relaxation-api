@@ -176,7 +176,7 @@ Understanding how req.params works.
 
 
 ## Bugs
-I have a CSS issue, when the suggestio boxes populate a second row, they overlap witht he 'add a new suggestion' link.
+I have a CSS issue, when the suggestion boxes populate a second row, they overlap witht he 'add a new suggestion' link.
 
 ## Future Improvements
 I want to add in a feature where you can add a review on the suggestion. 
