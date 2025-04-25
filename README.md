@@ -16,7 +16,7 @@
 * [Future Improvements](#future-improvements)
 
 # Description
-This is my second project in the course. I completed it in week 6. It is an api. I chose to build an api which gives suggestions for ways to relax. 
+This is my second project in the course. I completed it in week 6. I chose to build an App which gives suggestions for ways to relax. 
 
 ### Deployment Link 
 https://relax-now.netlify.app/
@@ -30,27 +30,23 @@ https://github.com/Claire-bot87/my-relaxation-api)
 I worked independently for this project. We had 1 week to complete it.
 
 ### Technologies Used
-Node
-Express
-EJS
-Mongoose
-MongoDB Compass
-Netlify
+- Node
+- Express
+- EJS
+- Mongoose
+- MongoDB Compass
+- Netlify
 
 
 ### Brief
-\aplication with full crud
-
-
-The app utilises EJS templates for rendering views to users
-The ap uses session-based authentication
-The app’s files are organisex folowign conventions taugh tin lectures
-
-The app has at leats one data entitiy in addition to the User model
-At least one erntity must jave a relationshuip with the user model
-It must have full CRUD finctionality
-Authorisation os implemented (only loggedin users can create updat or deletedata)
-The app must be deployed online
+- Build an application with full CRUD functionality.
+- The app must utilise EJS templates for rendering views to users.
+- The app must use session-based authentication.
+- The app’s files must be organised according to convention.
+- The app must have at least one data entity in addition to the User model.
+- At least one entity must have a relationshuip with the user model.
+- Authorisation must be implemented (only logged in users can create, update or delete data).
+- The app must be deployed online.
 
 
 ## Planning
@@ -66,18 +62,18 @@ The app must be deployed online
 
 
 
-File structure
+#### File structure
 First I built out the models:
 - User Model
-- Suggestion model
+- Suggestion Model
 
-In my suggestion model i had a category key, because I wanted to group the suggestions by category.
+In my suggestion model I had a 'category' key, because I wanted to group the suggestions by category.
 Then I built my controllers and my views.
 
-A detailed look at adding a new suggestion. 
+#### A detailed look at adding a new suggestion
 
-First I rendered the new suggestion page:
-Controller
+##### First, I rendered the new suggestion page:
+Controller:
 ```.js
 router.route('/suggestion/new').get(async function (req, res, next) {
   try {
@@ -87,7 +83,7 @@ router.route('/suggestion/new').get(async function (req, res, next) {
   }
 })
 ```
-view:
+View:
 ```.js
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
@@ -108,9 +104,7 @@ view:
 
 ```
 
-
-
-Then I enabled a POST request to post a new suggestion, adding it to the database.
+##### Then, I enabled a POST request to post a new suggestion, adding it to the database:
 ```.js
 router.route('/suggestion/new').post(async function (req, res) {
  
@@ -134,14 +128,16 @@ router.route('/suggestion/new').post(async function (req, res) {
 
 
 ## Challenges
-Many new concepts were 
-request response cycle
-testing requests and responses using postman
-i want the delete button and edit button to only be visible when a user who created that suggestion is logged in.By right now they don't appear even though the user who created that suggestion is logged in 
+I learnt many new concepts in this module, for example:
+- The request response cycle.
+- Testing requests and responses using Postman.
+- Creating a database and making a request to the database.
+- Using conditional statements to decide which elements to render in EJS. This was a good foundation for my later learnings about conditional rendering in ReactJS.
+- Session-based authentication. This was a good starting point, from which I could later learn token-based authentication.
 
 ## Wins
 
-I needed to render an index of suggestions for 1 particular category. We had not done this in class before. So I had to use links in my home page, linking to an index for each category. Those links provided the route/path I needed. I used req.params.category to capture each specific category and render just the suggestions for that category. I did this by passign chosenCategory as a 'local'.
+I needed to render an index of suggestions for 1 particular category. We had not done this in class before, so it was a challenge. I used links in my home page, linking to an index for each category. Those links provided the route/path I needed. I used req.params.category to capture each specific category and render just the suggestions for that category. I did this by passing chosenCategory as a 'local'.
 ```.js
 router.route('/suggestion/:category').get(async function (req, res) {
   const user = req.session.user
@@ -179,5 +175,5 @@ Understanding how req.params works.
 I have a CSS issue, when the suggestion boxes populate a second row, they overlap witht he 'add a new suggestion' link.
 
 ## Future Improvements
-I want to add in a feature where you can add a review on the suggestion. 
-I would also like to add a star-rating feature on the suggestion. Then I would create a filter so that you can view the top-rated suggestions.
+- I want to add in a feature where you can add a review on the suggestion. 
+- I would also like to add a star-rating feature on the suggestion. Then I would create a filter so that you can view the top-rated suggestions.
